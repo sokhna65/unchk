@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Étudiants Connectés</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+      line-height: 1.6;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    /* Header Section */
+    header {
+      background: #003366;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      background: #003366;
+      padding: 0.5rem;
+      border-radius: 8px;
+      
+    }
+
+    .logo img {
+      height: 100px;
+      display: block;
+      width: 100px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: blue;
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('et.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+    }
+
+    .hero-content h1 span {
+      color: #4FD1C5;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    /* Announcement Section */
+    .announcement {
+      background: #ffffff;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .announcement h2 {
+      font-size: 1.8rem;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .announcement p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Cards Section */
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+      background-color: #f0f4f8;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-icon img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      color: #003366;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #777;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-btn {
+      background-color: #4FD1C5;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .card-btn:hover {
+      background-color: #2C9A8D;
+    }
+
+    footer {
+  background: #003366;
+  color: white;
+  padding: 3rem 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 180px;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #4FD1C5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-col ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color:rgb(80, 83, 255);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #ffffff22;
+  padding-top: 1rem;
+}
+
+
+    /* Library Section */
+    .library-preview {
+      background: #ffffff;
+      padding: 2rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .library-preview h2 {
+      font-size: 1.8rem;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .library-preview p {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    .library-preview .books {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+    }
+
+    .book {
+      background: #f0f4f8;
+      border-radius: 8px;
+      padding: 1rem;
+      min-width: 150px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .book img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .book h4 {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .sections {
+        padding: 3rem 1rem;
+      }
+    }
+    .testimonials {
+  padding: 3rem 2rem;
+  background-color: #f9fbfd;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  color: #002d62;
+  margin-bottom: 2rem;
+}
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #003366;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  z-index: 99;
+}
+
+.dropdown-content a {
+  display: block;
+  color: white;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.dropdown-content a:hover {
+  background-color: blue;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.testimonial-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  max-width: 300px;
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial::before {
+  content: "“";
+  font-size: 3rem;
+  color: #4FD1C5;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+}
+
+.testimonial p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.testimonial h4 {
+  font-weight: bold;
+  color: #002244;
+}
+
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 4rem 1rem;
+      }
+
+      .sections {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo Étudiants Connectés">
+    </div>
+    <nav>
+  <div class="dropdown">
+    <a href="#">Accueil</a>
+    <div class="dropdown-content">
+      <a href="#">Présentation</a>
+      <a href="#">Actualités</a>
+      <a href="#">Objectifs</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#">Cours</a>
+    <div class="dropdown-content">
+      <a href="#">Tous les cours</a>
+      <a href="#">Par matière</a>
+      <a href="#">Favoris</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#">Groupes</a>
+    <div class="dropdown-content">
+      <a href="#">Mes groupes</a>
+      <a href="#">Créer un groupe</a>
+      <a href="#">Rejoindre</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#">Forum</a>
+    <div class="dropdown-content">
+      <a href="#">Questions / Réponses</a>
+      <a href="#">Sujets récents</a>
+      <a href="#">Tendances</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#">Connexion</a>
+    <div class="dropdown-content">
+      <a href="#">Se connecter</a>
+      <a href="#">Créer un compte</a>
+    </div>
+  </div>
+</nav>
+
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Bienvenue sur <span>Étudiants Connectés</span></h1>
+      <p>Un espace collaboratif pour partager des cours, former des groupes d'étude, trouver des opportunités et réussir ensemble !</p>
+    </div>
+  </section>
+
+  <section class="announcement">
+    <h2>Annonce importante</h2>
+    <p>Les cours commencent le 15 avril 2025 ! Assurez-vous de vous inscrire sur la plateforme pour ne rien manquer.</p>
+  </section>
+
+  <section class="sections">
+    <div class="card">
+      <div class="card-icon">
+        
+      </div>
+      <h3>📘 Partage de Cours</h3>
+      <p>Accédez à une base de cours partagés par d'autres étudiants dans toutes les matières.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+     
+      </div>
+      <h3>👥 Groupes d'Étude</h3>
+      <p>Créez ou rejoignez des groupes d'étude selon vos besoins et disponibilités.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+       
+      </div>
+      <h3>🎓 Opportunités</h3>
+      <p>Trouvez des stages, bourses et offres spéciales pour étudiants.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        
+      </div>
+      <h3>💬 Forum</h3>
+      <p>Posez des questions, échangez des conseils et entraidez-vous.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+       
+      </div>
+      <h3>💡 Discussion</h3>
+      <p>Participez à des discussions ouvertes sur divers sujets liés aux études.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+       
+      </div>
+      <h3>📚 Bibliothèque</h3>
+      <p>Explorez une bibliothèque numérique avec des livres, PDF et documents utiles.</p>
+      <a href="#" class="card-btn">Voir plus</a>
+    </div>
+  </section>
+
+  <section class="library-preview">
+    <h2>Aperçu de la Bibliothèque</h2>
+    <div class="books">
+      <div class="book">
+        <img src="cv.jpg" alt="Book 1">
+        <h4>Communication Visuelle</h4>
+      </div>
+      <div class="book">
+        <img src="ju.jpg" alt="Book 3">
+        <h4>Introduction à L'Information</h4>
+      </div>
+      <div class="book">
+        <img src="yu.jpg" alt="Book 2">
+        <h4>Introduction au JavaScript</h4>
+      </div>
+      
+      <div class="book">
+        <img src="SI.jpg" alt="Book 3">
+        <h4>Graphisme et Design</h4>
+      </div>
+      <div class="book">
+        <img src="p.jpg" alt="Book 3">
+        <h4>Introduction à la Programmation</h4>
+      </div>
+    </div>
+  </section>
+  <!-- AJOUT APRÈS LA SECTION BIBLIOTHÈQUE -->
+<section class="testimonials">
+  <h2>Ce que disent les étudiants</h2>
+  <div class="testimonial-cards">
+    <div class="testimonial">
+      <p>"Grâce à Étudiants Connectés, j’ai trouvé un groupe d'étude qui m’a vraiment aidé à progresser. Super plateforme !"</p>
+      <h4>— Aïcha D.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"La bibliothèque est top ! J’ai trouvé plein de cours utiles pour mes révisions."</p>
+      <h4>— Hamza M.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"L’interface est agréable et les opportunités partagées m'ont permis de décrocher un stage."</p>
+      <h4>— Sidy D.</h4>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-links">
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Tous les Cours</a></li>
+        <li><a href="#">Créer un Groupe</a></li>
+        <li><a href="#">Discussions Forum</a></li>
+        <li><a href="#">Connexion / Inscription</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ressources</h4>
+      <ul>
+        <li><a href="#">Bibliothèque Numérique</a></li>
+        <li><a href="#">Stages & Bourses</a></li>
+        <li><a href="#">FAQ Étudiants</a></li>
+        <li><a href="#">Guides & Tutoriels</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact & Plateforme</h4>
+      <ul>
+        <li><a href="#">Nous Contacter</a></li>
+        <li><a href="#">À propos de la Plateforme</a></li>
+        <li><a href="#">S'abonner à la Newsletter</a></li>
+        <li><a href="#">Mentions légales & CGU</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Étudiants Connectés. Tous droits réservés.</p>
+    <p>Développé par <a href="#">Mame Diarra Gueye</a></p>
+  </div>
+</footer>
